@@ -30,11 +30,12 @@ buildscript {
         maven { url "http://oss.jfrog.org/oss-snapshot-local/" }
         mavenCentral()
         jcenter()
+        google()
         maven { url 'https://maven.google.com' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.3.2'
     }
 }
 
@@ -107,7 +108,8 @@ dependencies {
     compile 'com.android.support:support-v4:26.0.2@aar'
     compile 'com.android.support:support-compat:26.0.2@aar'
     compile 'com.android.support:support-annotations:26.0.2'
-    compile('com.alibaba.android:virtual-common:1.0.11') {
+    provided('com.alibaba.android:virtual-common:1.0.11') {
+        exclude group: 'xmlpull', module: 'xmlpull'
         changing = true
     }
     compile 'com.android.support:recyclerview-v7:26.0.2@aar'
